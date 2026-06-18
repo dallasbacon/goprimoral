@@ -2,17 +2,32 @@
   box-sizing: border-box;
 }
 
+:root {
+  --white: rgba(255, 255, 255, 0.96);
+  --violet: rgba(154, 92, 255, 0.68);
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   overflow: hidden;
+  background: #020207;
+  color: var(--white);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(108, 42, 180, 0.22), transparent 32%),
-    radial-gradient(circle at 80% 70%, rgba(136, 62, 220, 0.18), transparent 36%),
-    #030309;
-  color: #fff;
+    radial-gradient(circle at 50% 44%, rgba(255,255,255,0.035), transparent 18%),
+    radial-gradient(circle at 18% 24%, rgba(122, 62, 202, 0.12), transparent 32%),
+    radial-gradient(circle at 84% 74%, rgba(157, 90, 255, 0.10), transparent 34%),
+    linear-gradient(to bottom, rgba(0,0,0,0.04), rgba(0,0,0,0.36));
 }
 
 #universe {
@@ -36,28 +51,29 @@ body {
 
 h1 {
   margin: 0;
-  max-width: 1100px;
+  max-width: 1120px;
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: clamp(2.25rem, 6vw, 5.75rem);
+  font-size: clamp(2.2rem, 5.9vw, 5.8rem);
   font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.035em;
-  color: rgba(255, 255, 255, 0.96);
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+  color: var(--white);
+  text-wrap: balance;
   text-shadow:
-    0 0 10px rgba(187, 145, 255, 0.8),
-    0 0 28px rgba(129, 64, 255, 0.6),
-    0 0 70px rgba(87, 28, 179, 0.45);
-  animation: textPulse 8s ease-in-out infinite;
+    0 0 10px rgba(255, 255, 255, 0.20),
+    0 0 28px rgba(177, 133, 255, 0.42),
+    0 0 90px rgba(118, 56, 217, 0.44);
+  animation: breathe 9s ease-in-out infinite;
 }
 
-@keyframes textPulse {
+@keyframes breathe {
   0%, 100% {
-    opacity: 0.92;
-    filter: drop-shadow(0 0 8px rgba(185, 145, 255, 0.35));
+    opacity: 0.90;
+    filter: drop-shadow(0 0 7px rgba(177, 133, 255, 0.26));
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 18px rgba(185, 145, 255, 0.55));
+    filter: drop-shadow(0 0 20px rgba(177, 133, 255, 0.48));
   }
 }
 
